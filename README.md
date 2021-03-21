@@ -1,2 +1,2 @@
-# jquery-sourcecode-analysis
+# jquery-analysis
 jquery源码分析

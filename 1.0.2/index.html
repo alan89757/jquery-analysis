@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jquery1.0.2</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">hello world</div>
+  <script src="./jquery1.0.2.js"></script>
+  <!-- <script src="./jquery-2.0.3.js"></script> -->
+  <!-- <script src="./jquery.js"></script> -->
+  <script>
+    /*
+    // extend
+    var obj1 = {
+      name: "alan",
+      info: {
+        hello: function() {
+          console.log('hello');
+        }
+      }
+    }
+    var obj2 = {
+      info: {
+        world: function() {
+          console.log('world');
+        }
+      }
+    }
+    var result = $.extend(true, obj1, obj2);
+    console.log(result)
+    */
+
+    /*
+    // markArray
+    function fn() {
+      var args = jQuery.makeArray(arguments);
+      args.push(1);
+      console.log(args);
+    }
+    fn("alan1", "alan2", "alan3");
+    
+    var data1 = [3,4,5];
+    var data2 = {"0": "alan3", "1": "alan4", "2": "alan5"};
+
+    var result = jQuery.merge(data1, data2);
+    console.log(result);
+    */
+    /*
+    jquery选择器引擎
+    console.log($("<div>"));
+    console.log($("#box"));
+    console.log($(document));
+    $(function() {
+      console.log(111);
+    });
+    $(function() {
+      console.log(222);
+    });
+    $(function() {
+      console.log(333);
+    });
+    */
+    /*
+    // $.each
+    var arr = [
+      {
+        name: "alan1",
+        age:20
+      },
+      {
+        name: "alan2",
+        age:22
+      }
+    ]
+    $.each(arr, function(i, item){
+      console.log(i, item)
+    })
+    */
+   /*
+    // $.css
+    // console.log($("#box").css("background"));
+    // console.log($("#box").css("background", "red"));
+    // console.log($("#box").css({
+    //   "background": "red",
+    //   "color": "blue",
+    //   "font-size": "20px"
+    // }));
+
+    // console.log($("#box").text());
+    // console.log($("#box").text("hello Alan"));
+    */
+
+    /*
+  // Callbacks
+  var callback = $.Callbacks("memory");
+    
+  callback.add(function(){
+    console.log(111)
+  });
+
+  callback.add(function(){
+    console.log(222)
+    // return false;
+  });
+
+  callback.fire();
+
+  callback.add(function(){
+    console.log(333)
+  });
+  
+  callback.fire();
+  */
+  
+  // ajax异步 deferred
+  /*
+  $.ajax({url: "test.json", type: "get", dataType: "json"}).done(function() {
+    console.log('执行成功');
+  }).fail(function() {
+    console.log("执行失败")
+  }).done(function(){
+    console.log("再次调用成功")
+  });
+  */
+
+  var def = $.Deferred();
+  var wait = function(def) {
+    var test = function() {
+      console.log("test开始")
+      def.resolve()
+    }
+    setTimeout(test, 5000);
+    return def;   // 返回def给when函数使用
+  }
+
+  $.when(wait(def)).done(function(data) {
+    console.log("执行成功")
+  }).fail(function() {
+    console.log("执行失败")
+  }).done(function() {
+    console.log("再次执行成功")
+  })
+
+  </script>
+</body>
+</html>

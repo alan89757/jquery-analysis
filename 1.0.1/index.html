@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./jquery1.0.1.js"></script>
+  <!-- <script src="./jquery.1.1.1.js"></script> -->
+  <!-- <script src="./jquery-2.0.3.js"></script> -->
+  <title>jquery1.0.1</title>
+</head>
+<body>
+  <div id="box" class="box" style="font-size: 30px;">iframe</div>
+  <!-- <input type="text" value="apple" id="textInput"> -->
+  <script>
+    // 参考jquery2.0.3
+    // 1. $()
+    /*
+    console.log($())
+    console.log($().css());
+    */
+    
+    // 2. extend
+    // 合并两个参数
+    /*
+    var obj1 = { 
+      name: 'alan'
+    }
+    var obj2 = {
+      age: 20
+    }
+    console.log($.extend(obj1, obj2))
+    */
+
+    // 一个参数，添加静态方法
+    /*
+    $.extend({
+      work: function() {
+        console.log("I'm working")
+      }
+    })
+    console.log($.work());
+    */
+    // 深拷贝
+    /*
+    var obj1 = {
+      name: 'alan11',
+      list: {
+        width: function() {
+
+        }
+      }
+    }
+    var obj2 = {
+      age: 20,
+      list: {
+        height: function() {
+          
+        }
+      }
+    }
+    var result = $.extend(true, obj1, obj2);
+    console.log(result)
+    */
+
+    // 3.伪数组合并 $.markArray
+    /*
+    function fn() {
+      var result = $.markArray(arguments)
+      console.log(result);
+    }
+    fn('apple', 'banana');
+    
+    var arr = [1,2,3];
+    var obj2 = {"0": "apple", "1": "banana"}
+    var res = jQuery.merge(arr, obj2)
+    console.log(res)
+    */
+
+   // 4. 选择器引擎
+  //  console.log($("#box"))
+  //  console.log($("<div>"))
+  //  console.log($(document));
+  
+    // 5. each
+    /*
+      var arr = [2,3,4,5];
+      $.each(arr, function(index, value) {
+        console.log(index, value)
+      }, ['arg1', 'arg2']);
+
+    var obj = { name: 'alan'};
+    $.each(obj, function(index, value) {
+      console.log(index, value)
+    }, ['arg1', 'arg2'])
+   */
+   
+   // 6. 添加事件监听 DOMContentLoaded
+   /*
+  $(function(){
+    console.log(this)
+    console.log(11111)
+  });
+
+  $(function(){
+    console.log(22222)
+  });
+
+  $(function(){
+    console.log(33333)
+  });
+  */
+
+  // 7. dom对象操作
+  // console.log($('#box').css('font-size'));
+  // $('#box').css('color', 'red');
+  // $('#box').css({backgroundColor: 'red', width: '100px', height: '100px'})
+
+  // 8. text
+  // console.log($('#box').text());
+  // console.log($('#box').text('3333'));
+
+  // 9.callback  ??? firing,testing不知道用来干啥
+  // var callback = $.Callbacks("memory");
+  // var callback = $.Callbacks("stopOnFalse");
+  /*
+  var callback = $.Callbacks("once memory");
+  console.log(callback)
+  //工厂函数   创建了一个回调列表
+  callback.fire();
+
+    callback.add(function(){
+       console.log(1)
+      //  return false; 
+    });
+ 
+    callback.add(function(){
+       console.log(2)
+    });
+ 
+    callback.fire(); 
+ 
+    callback.add(function(){
+       console.log(3)
+    });
+
+    // callback.fire(); 
+  */
+  // 10.deffer
+  //同步任务列队  从上往下加载     异步任务列队
+   //1.5xxx   XHq对象   1.7  deferred对象
+    /*
+    $.ajax({
+      url:"test.json",
+      type:"get",
+      dataType:"json",
+      success: function(data){  //html  text/pain
+        console.log(data)
+        console.log("成功")
+      },
+      error: function(){
+         console.log("失败")
+      }
+    });
+   
+   // deferred对象
+   $.when($.ajax({url:"test.json",type:"get",dataType:"json",}),
+          $.ajax({url:"test1.json",type:"get",dataType:"json",}))
+   .done(function(data){   //集合
+        console.log("成功");
+      })
+    .fail(function(){
+        console.log("失败");
+      })
+    .done(function(){
+        console.log("我还可以调用哦");
+      });
+ */
+
+ /*
+ var der = $.Deferred();   //deferred对象
+  var wait = function(der){
+    var test = function(){
+      // 这个才是重中之重，能找到对应的执行函数
+      der.reject();   //成功  失败    fire   ==  list
+    }
+    setTimeout(test,3000);
+    return der;
+  }
+  //异步操作  普通函数
+  $.when(wait(der))
+  .done(function(){
+    console.log("执行成功");
+  })
+  .fail(function(){
+    console.log("执行失败");
+  })
+  .done(function(){
+    console.log("再次执行成功");
+  });
+  */
+ 
+  //deferred  异步编程  "回调" 解决方案
+   //一个异步的操作 成功 失败   对应一个回调函数 
+   
+   //多个异步的操作 成功 失败   对应一个回调函数
+   //一个异步的操作 成功 失败   对应多个回调函数 
+   //deferred  对于异步操作的回调解决方案、
+   //
+   /*
+     异步操作  设置了状态
+       resolve  成功     ==  done    回调
+       reject   失败     ==  fail    回调
+       notify   进行中   ==  progess 回调
+ 
+     callbacks  
+    */
+
+  </script>
+</body>
+</html>
