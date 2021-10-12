@@ -7,7 +7,10 @@
     <script src="./jquery.js"></script>
 </head>
 <body>
+    <div id="box">hello world</div>
     <script>
+        /*
+        // 第一课
         // 1. jQuery函数初始化，$.css()
         // console.log($().css());  // css方法是挂载在原型上的
 
@@ -62,8 +65,20 @@
                 }
             ]
         }
-
         console.log($.extend(true, obj3, obj4));  // lists是数组直接覆盖
+        */
+    </script>
+    <script>
+        // 第二课,
+        // 1. 类数组转真正的数组
+        // console.log($.isArray)
+        // function fn(){
+        //     console.log($.markArray(arguments));  // ['a', 'b', 'c']
+        // }
+        // fn("a", "b", "c");;
+        // 2. 选择器引擎
+        console.log($(document)); // 返回数组，是jquery实例
+        console.log($("#box"));
     </script>
 </body>
 </html>
