@@ -109,7 +109,7 @@
     }
 
     if( typeof target !== "object") {
-      target = {};
+        target = {};
     }
 
     // 一个参数，实例扩展，给jquery扩展静态方法
@@ -125,11 +125,12 @@
           src = target[name];  // 目标源，后面需要判断是否是数组
           copy = options[name];  // 要合并的值
           // 深拷贝 只需要处理对象和数组
-          if(deep && (jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)))) { // 深拷贝中区分是否是数组
+          if(deep && ((copyIsArray = jQuery.isArray(copy)) || jQuery.isPlainObject(copy))) { // 深拷贝中区分是否是数组
             if(copyIsArray) {
-              clone = jQuery.isArray(src) ? src : [];
+                copyIsArray = false;
+                clone = jQuery.isArray(src) ? src : [];
             } else {
-              clone = jQuery.isPlainObject(src) ? src : {};
+                clone = jQuery.isPlainObject(src) ? src : {};
             }
             // 属性值是对象或数组还需要再合并一次
             target[name] = jQuery.extend(deep, clone, copy)

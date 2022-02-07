@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <!-- <script src="../1.0.1/jquery1.0.1.js"></script> -->
+    <script src="./jquery.js"></script>
+</head>
+<body>
+    <div id="hello1">hello1</div>
+    <div id="hello2">hello2</div>
+    <script>
+        // 1. 合并两个参数
+        var obj1 = {
+            name: "alan1"
+        }
+        var obj2 = {
+            age: 20
+        }
+        console.log($.extend(obj1, obj2));  // {name: 'alan1', age: 20}
+        console.log(obj1);   // {name: 'alan1', age: 20}
+
+        // 2. jQuery函数对象添加方法
+        $.extend({
+            work: function() {
+                console.log("I'm working")
+            }
+        })
+        $.work();  // I'm working
+
+        // 3. 深拷贝
+        var list1 = {
+            name: ["alan1", "alan2", "alan3"],
+            info: {
+                hello1: 1
+            }
+        }
+        var list2 = {
+            name: ["alan4", "alan5"],
+            info: {
+                hello2: 2
+            }
+        }
+        console.log($.extend(true, list1, list2));  // {"name":["alan4","alan5","alan3"],"info":{"hello1":1,"hello2":2}}
+        
+    </script>
+</body>
+</html>
