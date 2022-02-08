@@ -113,7 +113,7 @@ jQuery.fn = jQuery.prototype = {
 				// Assume that strings that start and end with <> are HTML and skip the regex check
 				//假设用< >开始和结束的字符串是HTML，跳过正则表达式检查。
 				match = [ null, selector, null ];
-				console.log(match)
+				// console.log(match)
 
 			} else {
 				match = rquickExpr.exec( selector );
@@ -646,7 +646,7 @@ jQuery.extend({
 		var l = second.length,
 			i = first.length,
 			j = 0;
-			console.log(first)
+			// console.log(first)
 
 		if ( typeof l === "number" ) {
 			for ( ; j < l; j++ ) {
@@ -6177,7 +6177,7 @@ function showHide( elements, show ) {
 jQuery.fn.extend({
 	css: function( name, value ) {
 		return jQuery.access( this, function( elem, name, value ) {
-			console.log(elem)
+			// console.log(elem)
 			var styles, len,
 				map = {},
 				i = 0;

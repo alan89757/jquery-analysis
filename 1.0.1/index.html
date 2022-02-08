@@ -111,18 +111,17 @@
   */
 
   // 7. dom对象操作
-  // console.log($('#box').css('font-size'));
-  // $('#box').css('color', 'red');
-  // $('#box').css({backgroundColor: 'red', width: '100px', height: '100px'})
+  console.log($('#box').css('font-size'));
+  $('#box').css('color', 'red');
+  $('#box').css({backgroundColor: 'red', width: '100px', height: '100px'})
 
   // 8. text
-  // console.log($('#box').text());
-  // console.log($('#box').text('3333'));
+  console.log($('#box').text());
+  console.log($('#box').text('3333'));
 
   // 9.callback  ??? firing,testing不知道用来干啥
-  // var callback = $.Callbacks("memory");
-  // var callback = $.Callbacks("stopOnFalse");
-  /*
+  var callback = $.Callbacks("memory");
+  var callback = $.Callbacks("stopOnFalse");
   var callback = $.Callbacks("once memory");
   console.log(callback)
   //工厂函数   创建了一个回调列表
@@ -143,8 +142,7 @@
        console.log(3)
     });
 
-    // callback.fire(); 
-  */
+    callback.fire(); 
   // 10.deffer
   //同步任务列队  从上往下加载     异步任务列队
    //1.5xxx   XHq对象   1.7  deferred对象
