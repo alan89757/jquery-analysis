@@ -1,7 +1,6 @@
-## 类数组转数组
-#### $.markArray
+## $.markArray
 
-#### $.markArray和$.merge用法
+### $.markArray和$.merge用法
 ```js
 // 类数组转数组
 function fn() {
@@ -14,7 +13,7 @@ var arr = [1,2]
 console.log(jQuery.merge(arr, {"0": "alan6", "1": "alan7"}));  // [1, 2, 'alan6', 'alan7']
 ```
 
-#### $.makeArray和$.merge源码实现
+### $.makeArray和$.merge源码实现
 ```js
 // jQuery部分源码
 jQuery.extend({
