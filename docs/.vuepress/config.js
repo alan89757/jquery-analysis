@@ -1,7 +1,7 @@
 
 module.exports = {
-    title: 'Jquery专题教程',
-    description: 'Jquery专题教程',
+    title: 'Jquery源码专题',
+    description: 'Jquery源码专题',
     base: '/jquery/',
     port: 8080,
     themeConfig: {
